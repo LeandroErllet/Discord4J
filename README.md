@@ -1,2 +1,2 @@
 # Discord4J
-Discord4J minecraft Plugin api
+Discord4J minecraft Plugin api!
