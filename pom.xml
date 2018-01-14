@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>br.com.craftlife</groupId>
+  <artifactId>discord4j</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>discord4j</name>
+  <url>http://maven.apache.org</url>
+
+ <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  
+  <!-- Repositórios -->
+  <repositories>
+    <!-- Spigot -->
+    <repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+      <id>sonatype</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+    <!-- Vault -->
+    <repository>
+      <id>vault-repo</id>
+      <url>http://nexus.hc.to/content/repositories/pub_releases</url>
+    </repository>
+     <!-- SK89q -->
+    <repository>
+      <id>sk89q-repo-wg</id>
+      <url>http://maven.sk89q.com/artifactory/repo</url>
+    </repository>
+     <!-- JitPack.io -->
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+    <!-- PermissionsEX -->
+    <repository>
+      <id>pex-repo</id>
+      <url>http://pex-repo.aoeu.xyz</url>
+    </repository>
+    
+    <repository>
+      <id>dmulloy2-repo</id>
+      <url>http://repo.dmulloy2.net/content/groups/public/</url>
+    </repository>
+    
+     <!-- Central -->
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+  <!-- Dependências -->
+  <dependencies>
+    <!--Spigot API-->
+    <dependency>
+       <groupId>org.spigotmc</groupId>
+       <artifactId>spigot-api</artifactId>
+       <version>1.12.2-R0.1-SNAPSHOT</version>
+       <scope>provided</scope>
+    </dependency>
+    <!-- Json -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20160810</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- Lombok  -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.12</version>
+      <scope>provided</scope>
+    </dependency>  
+    <!-- Discord4J -->
+    <dependency>
+      <groupId>com.github.austinv11</groupId>
+      <artifactId>Discord4J</artifactId>
+      <version>dev-SNAPSHOT</version>
+      <classifier>shaded</classifier>
+    </dependency>
+     <!-- Discord4J -->
+    <dependency>
+      <groupId>com.github.austinv11</groupId>
+      <artifactId>Discord4J</artifactId>
+      <version>dev-SNAPSHOT</version>
+      <classifier>javadoc</classifier>
+    </dependency>
+  </dependencies>
+  
+  <!-- Build -->
+  <build>
+    <finalName>${project.name}</finalName>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <filtering>true</filtering>
+        <directory>${basedir}/src/main/resources/</directory>
+        <includes>
+          <include>*.yml</include>
+          <include>**/logback.xml</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+    </plugins>
+  </build>
+</project>
