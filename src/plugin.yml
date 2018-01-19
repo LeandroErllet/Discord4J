@@ -1,0 +1,5 @@
+name: UUIDDatabaseAPI
+version: V. 1.0
+author: zM4xi
+
+main: de.zm4xi.uuiddatabase.spigot.main.SpigotUUIDDatabaseAPI
